@@ -11,7 +11,7 @@ const TaskList = () => {
   useEffect(() => {
     fetch(API_URL)
       .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch tasks");
+        if (!res.ok) throw new Error("Failed");
         return res.json();
       })
       .then((data) => {
