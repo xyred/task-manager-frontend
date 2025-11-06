@@ -1,49 +1,21 @@
-import { useEffect, useState } from "react";
-import TaskItem from "./TaskItem";
+const TaskList = ({ tasks }) => {
 
-const API_URL = import.meta.env.VITE_API_URL;
-
-const TaskList = () => {
-  const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch(API_URL)
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed");
-        return res.json();
-      })
-      .then((data) => {
-        setTasks(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <div>Loading tasks...</div>;
-  if (error) return <div>Error: {error}</div>;
-
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {tasks.map((task) => (
-          <TaskItem key={task.id} task={task} />
-        ))}
-      </tbody>
-    </table>
-  );
+    return (
+        <div>
+            <h2>Task List</h2>
+            {tasks.length > 0 ? (
+                <ul>
+                    {tasks.map((task) => (
+                        <li key={task.id}>
+                            <strong>{task.title}</strong>: {task.description}
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>No tasks available</p>
+            )}
+        </div>
+    );
 };
 
 export default TaskList;
