@@ -1,19 +1,26 @@
 import { useState, useEffect } from 'react';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api/tasklists';
+import API_ENDPOINTS from '../config/api';
 
-const useTaskLists = () => {
+const useTaskLists = (boardId) => {
     const [taskLists, setTaskLists] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        if (!boardId) {
+            setError('Board ID is required to fetch task lists');
+            setLoading(false);
+            return;
+        }
+
         const fetchTaskLists = async () => {
             try {
-                const res = await fetch(API_URL);
+                const res = await fetch(`${API_ENDPOINTS.TASK_LISTS}?boardId=${boardId}`);
                 if (!res.ok) throw new Error('Failed to fetch task lists');
                 const data = await res.json();
                 setTaskLists(data);
+                console.log(`Fetched task lists for board ${boardId}:`, data);
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -22,7 +29,7 @@ const useTaskLists = () => {
         };
 
         fetchTaskLists();
-    }, []);
+    }, [boardId]);
 
     return { taskLists, loading, error };
 };

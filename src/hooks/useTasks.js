@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api/tasks';
+import API_ENDPOINTS from '../config/api';
 
 const useTasks = () => {
     const [tasks, setTasks] = useState([]);
@@ -10,7 +10,7 @@ const useTasks = () => {
     useEffect(() => {
         const fetchTasks = async () => {
             try {
-                const res = await fetch(API_URL);
+                const res = await fetch(API_ENDPOINTS.TASKS);
                 if (!res.ok) throw new Error('Failed to fetch tasks');
                 const data = await res.json();
                 setTasks(data);

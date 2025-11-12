@@ -1,9 +1,15 @@
-const TaskList = ({ tasks }) => {
+import useTasks from '../hooks/useTasks';
+
+const TaskList = () => {
+
+    const { loading, error } = useTasks();
+
+    if (loading) return <p>Loading tasks...</p>;
+    if (error) return <p>Error loading tasks: {error}</p>;
 
     return (
         <div>
-            <h2>Task List</h2>
-            {tasks.length > 0 ? (
+            {/* {tasks.length > 0 ? (
                 <ul>
                     {tasks.map((task) => (
                         <li key={task.id}>
@@ -12,8 +18,8 @@ const TaskList = ({ tasks }) => {
                     ))}
                 </ul>
             ) : (
-                <p>No tasks available</p>
-            )}
+            )} */}
+            <p>No tasks available</p>
         </div>
     );
 };

@@ -1,11 +1,11 @@
 import './App.css';
-import TaskListContainer from './components/TaskListContainer';
+import BoardContainer from './components/BoardContainer';
 
 const App = () => {
   return (
     <>
       <h1>Task Manager</h1>
-      <TaskListContainer />
+      <BoardContainer />
     </>
   )
 };
