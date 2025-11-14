@@ -16,7 +16,7 @@ const useTaskLists = (boardId) => {
 
         const fetchTaskLists = async () => {
             try {
-                const res = await fetch(`${API_ENDPOINTS.TASK_LISTS}?boardId=${boardId}`);
+                const res = await fetch(`${API_ENDPOINTS.TASK_LISTS}/board/${boardId}`);
                 if (!res.ok) throw new Error('Failed to fetch task lists');
                 const data = await res.json();
                 setTaskLists(data);
