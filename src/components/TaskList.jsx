@@ -1,6 +1,6 @@
 import useTasks from '../hooks/useTasks';
 
-const TaskList = (taskList) => {
+const TaskList = ({ taskList }) => {
 
     const { tasks, loading, error } = useTasks(taskList.id);
 
@@ -8,7 +8,8 @@ const TaskList = (taskList) => {
     if (error) return <p>Error loading tasks: {error}</p>;
 
     return (
-        <div>
+        <div className='task-list'>
+            <h4>{taskList.title}</h4>
             {tasks.length > 0 ? (
                 <div>
                     {tasks.map((task) => (
