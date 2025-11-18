@@ -1,4 +1,5 @@
 import useTasks from '../hooks/useTasks';
+import TaskCard from './TaskCard';
 
 const TaskList = ({ taskList }) => {
 
@@ -11,10 +12,10 @@ const TaskList = ({ taskList }) => {
         <div className='task-list'>
             <h4>{taskList.title}</h4>
             {tasks.length > 0 ? (
-                <div>
+                <div className='tasks'>
                     {tasks.map((task) => (
                         <div key={task.id}>
-                            <strong>{task.title}</strong>: {task.description}
+                            <TaskCard key={task.id} task={task} />
                         </div>
                     ))}
                 </div>
