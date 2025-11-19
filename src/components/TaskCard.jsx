@@ -1,4 +1,5 @@
 const TaskCard = ({ task }) => {
+    
     const { title, description, status, assignees } = task;
 
     return (

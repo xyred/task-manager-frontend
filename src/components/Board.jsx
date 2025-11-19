@@ -1,4 +1,5 @@
 import useTaskLists from '../hooks/useTaskLists';
+import './Board.css';
 import TaskList from './TaskList';
 
 

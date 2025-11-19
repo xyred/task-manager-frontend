@@ -1,0 +1,24 @@
+.board {
+  border: 1px solid #ebdddd;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  background-color: #241c1c;
+  margin-bottom: 1rem;
+}
+
+.board h3 {
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+}
+
+.board p {
+  margin: 0 0 1rem 0;
+  color: #d3d3d3;
+}
+
+.task-lists {
+  display: flex; /* Align task lists horizontally */
+  flex-wrap: wrap; /* Allow wrapping to the next row if needed */
+  gap: 1rem; /* Add spacing between task lists */
+}

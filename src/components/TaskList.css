@@ -1,0 +1,7 @@
+.task-list {
+  border: 1px solid #221f1f;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 200px; /* Set a fixed width for each task list */
+  background-color: #0f0f0f;
+}
