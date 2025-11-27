@@ -1,7 +1,7 @@
 import './TaskCard.css';
 
-const TaskCard = ({ task }) => {
-    
+export default function TaskCard({ task }) {
+
     const { title, description, status, assignees } = task;
 
     return (
@@ -9,8 +9,7 @@ const TaskCard = ({ task }) => {
             <h3>{title}</h3>
             <p>{description}</p>
             <p>Status: {status}</p>
+
         </div>
     );
-};
-
-export default TaskCard;
+}

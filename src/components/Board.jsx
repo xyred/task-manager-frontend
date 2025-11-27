@@ -3,7 +3,7 @@ import './Board.css';
 import TaskList from './TaskList';
 
 
-const Board = ({ board }) => {
+export default function Board({ board }) {
 
     const { taskLists, loading, error } = useTaskLists(board.id);
 
@@ -25,6 +25,4 @@ const Board = ({ board }) => {
             )}
         </div>
     );
-};
-
-export default Board;
+}

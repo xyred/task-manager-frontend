@@ -18,7 +18,10 @@
 }
 
 .task-lists {
-  display: flex; /* Align task lists horizontally */
-  flex-wrap: wrap; /* Allow wrapping to the next row if needed */
-  gap: 1rem; /* Add spacing between task lists */
+  display: flex;
+  /* Align task lists horizontally */
+  flex-wrap: wrap;
+  /* Allow wrapping to the next row if needed */
+  gap: 1rem;
+  /* Add spacing between task lists */
 }

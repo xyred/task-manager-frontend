@@ -2,7 +2,7 @@ import useBoards from "../hooks/useBoards";
 import Board from "./Board";
 import "./BoardContainer.css";
 
-const BoardContainer = () => {
+export default function BoardContainer() {
     const { boards, loading, error } = useBoards();
 
     if (loading) return <p>Loading boards...</p>;
@@ -15,6 +15,4 @@ const BoardContainer = () => {
             ))}
         </div>
     );
-};
-
-export default BoardContainer;
+}

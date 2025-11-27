@@ -1,8 +1,9 @@
-import './TaskList.css';
 import useTasks from '../hooks/useTasks';
+import NewTaskButton from './NewTaskButton';
 import TaskCard from './TaskCard';
+import './TaskList.css';
 
-const TaskList = ({ taskList }) => {
+export default function TaskList({ taskList }) {
 
     const { tasks, loading, error } = useTasks(taskList.id);
 
@@ -23,8 +24,7 @@ const TaskList = ({ taskList }) => {
             ) : (
                 <p>No tasks available</p>
             )}
+            <NewTaskButton />
         </div>
     );
-};
-
-export default TaskList;
+}
