@@ -1,10 +1,33 @@
-export default function NewTaskButton() {
-    const handleClick = () => {
-        // Logic to add a new task can be implemented here
-        alert('New Task Button Clicked!');
-    };
+import { useState } from 'react';
+import TaskForm from './TaskForm';
+
+export default function NewTaskButton({ onTaskCreated }) {
+    const [isFormOpen, setIsFormOpen] = useState(false);
+
+    function handleClick() {
+        setIsFormOpen(true);
+    }
+
+    function handleSubmit(taskData) {
+        onTaskCreated(taskData);
+        setIsFormOpen(false);
+    }
+
+    function handleCancel() {
+        setIsFormOpen(false);
+    }
 
     return (
-        <button className='new-task-button' onClick={handleClick}>Add New Task</button>
+        <div>
+            {!isFormOpen && (
+                <button className='new-task-button' onClick={handleClick}>Add New Task</button>
+            )}
+            {isFormOpen && (
+                <TaskForm
+                    onSubmit={handleSubmit}
+                    onCancel={handleCancel}
+                />
+            )}
+        </div>
     );
 }
